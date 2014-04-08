@@ -16,69 +16,69 @@ void ExampleObject::draw()
         glEnd();
 }
 
-void myUnitCube :: draw(){
+void myrect(){
+	glBegin(GL_QUADS);
+		glTexCoord2f(-0.5,-0.5); glVertex3d(-0.5,-0.5,0);
+		glTexCoord2f(0.5,-0.5);  glVertex3d(0.5,-0.5,0);
+		glTexCoord2f(0.5,0.5);   glVertex3d(0.5,0.5,0);
+		glTexCoord2f(-0.5,0.5); glVertex3d(-0.5,0.5,0);
+		glEnd();
+}
 
+
+void myUnitCube::draw()
+{
+
+	//frente
 	glPushMatrix();
-		glNormal3d(-1,0,0);
-		glBegin(GL_POLYGON);
-			glTexCoord2f(0.0, 0.0); glVertex3d(-0.5,-0.5,-0.5);
-			glTexCoord2f(0.0, 1.0); glVertex3d(-0.5,-0.5,0.5);
-			glTexCoord2f(1.0, 0.0); glVertex3d(-0.5,0.5,0.5);
-			glTexCoord2f(1.0, 1.0); glVertex3d(-0.5,0.5,-0.5);
-		glEnd();
+	glTranslated(0,0,0.5);
+	glNormal3f(0,0,1);
+	myrect();
+	glPopMatrix();
 
-		glNormal3d(1,0,0);
-		glBegin(GL_POLYGON);
-			glTexCoord2f(0.0, 0.0); glVertex3d(0.5,-0.5,-0.5);
-			glTexCoord2f(0.0, 1.0); glVertex3d(0.5,0.5,-0.5);
-			glTexCoord2f(1.0, 0.0); glVertex3d(0.5,0.5,0.5);
-			glTexCoord2f(1.0, 1.0); glVertex3d(0.5,-0.5,0.5);
-		glEnd();
+	//direita
+	glPushMatrix();
+	glTranslated(0.5,0,0);
+	glRotated(-90,0, -1,0);
+	glNormal3f(1,0,0);
+	myrect();
+	glPopMatrix();
 
-		glNormal3d(0,0,-1);
-		glBegin(GL_POLYGON);
-			glTexCoord2f(0.0, 0.0); glVertex3d(-0.5,-0.5,-0.5);
-			glTexCoord2f(0.0, 1.0); glVertex3d(-0.5,0.5,-0.5);
-			glTexCoord2f(1.0, 0.0); glVertex3d(0.5,0.5,-0.5);
-			glTexCoord2f(1.0, 1.0); glVertex3d(0.5,-0.5,-0.5);
-		glEnd();
+	//esquerda
+	glPushMatrix();
+	glTranslated(-0.5,0,0);
+	glRotated(-90,0, 1,0);
+	glNormal3f(-1,0,0);
+	myrect();
+	glPopMatrix();
 
-		glNormal3d(0,0,1);
-		glBegin(GL_POLYGON);
-			glTexCoord2f(0.0, 0.0); glVertex3d(-0.5,-0.5,0.5);
-			glTexCoord2f(0.0, 1.0); glVertex3d(0.5,-0.5,0.5);
-			glTexCoord2f(1.0, 0.0); glVertex3d(0.5,0.5,0.5);
-			glTexCoord2f(1.0, 1.0); glVertex3d(-0.5,0.5,0.5);
-		glEnd();
+	//trás
+	glPushMatrix();
+	glTranslated(0,0,-0.5);
+	glRotated(180,0, 1,0);
+	glNormal3f(0,0,-1);
+	myrect();
+	glPopMatrix();
 
-		glNormal3d(0,0,1);
-		glBegin(GL_POLYGON);
-			glTexCoord2f(0.0, 0.0); glVertex3d(-0.5,-0.5,0.5);
-			glTexCoord2f(0.0, 1.0); glVertex3d(0.5,-0.5,0.5);
-			glTexCoord2f(1.0, 0.0); glVertex3d(0.5,0.5,0.5);
-			glTexCoord2f(1.0, 1.0); glVertex3d(-0.5,0.5,0.5);
-		glEnd();
+	//cima
+	glPushMatrix();
+	glTranslated(0,0.5,0);
+	glRotated(-90,1, 0,0);
+	glNormal3f(0,1,0);
+	myrect();
+	glPopMatrix();
 
-		glNormal3d(0,-1,0);
-		glBegin(GL_POLYGON);
-			glTexCoord2f(0.0, 0.0); glVertex3d(-0.5,-0.5,-0.5);
-			glTexCoord2f(0.0, 1.0); glVertex3d(0.5,-0.5,-0.5);
-			glTexCoord2f(1.0, 0.0); glVertex3d(0.5,-0.5,0.5);
-			glTexCoord2f(1.0, 1.0); glVertex3d(-0.5,-0.5,0.5);
-		glEnd();
-
-		glNormal3d(0,1,0);
-		glBegin(GL_POLYGON);
-			glTexCoord2f(0.0, 0.0); glVertex3d(-0.5,0.5,-0.5);
-			glTexCoord2f(0.0, 1.0); glVertex3d(-0.5,0.5,0.5);
-			glTexCoord2f(1.0, 0.0); glVertex3d(0.5,0.5,0.5);
-			glTexCoord2f(1.0, 1.0); glVertex3d(0.5,0.5,-0.5);
-		glEnd();
-		glPopMatrix();		
-
+	//baixo
+	glPushMatrix();
+	glTranslated(0,-0.5,0);
+	glRotated(90,1, 0,0);
+	glNormal3f(0,-1,0);
+	myrect();
+  glPopMatrix();		
 }
 
 // Coefficients for material T
+
 float ambT[3] = {0.05375, 0.05, 0.06625};
 float difT[3] = {0.18275, 0.17, 0.22525};
 float specT[3] = {0.1, 0.1, 0.1};//{0.8,0.8,0.8}
@@ -106,16 +106,16 @@ void myTable :: draw(){
 	materialT = new CGFappearance(ambT,difT,specT,shininessT);
 	materialP1 = new CGFappearance(ambP1,difP1,specP1,shininessP1);
 	CGFappearance* tableAppearance = new CGFappearance(ambTx,difTx,specTx,shininessTx);
-	
+	tableAppearance->setTexture("table.png");
+	tableAppearance ->setTextureWrap(GL_REPEAT, GL_REPEAT);
 	
 	//Tampo
 	myUnitCube top;
 	glPushMatrix();
-	tableAppearance->setTexture("table.png");
 	tableAppearance->apply();
 	glTranslated(0,3.65,0);
 	glScaled(5,0.3,3);
-	materialT->apply();
+	//materialT->apply();
 	top.draw();
 	glPopMatrix();
 

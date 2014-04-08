@@ -17,7 +17,6 @@ class myTable: public CGFobject {
 	CGFappearance* materialT;
 	CGFappearance* materialP1;
 	CGFappearance* materialP2;
-	CGFappearance* tableAppearance;
 
 	public:
 		void draw();
