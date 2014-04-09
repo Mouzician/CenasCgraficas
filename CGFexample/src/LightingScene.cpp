@@ -279,7 +279,8 @@ void LightingScene::display()
 		glRotated(90.0,1,0,0);
 		//materialB->apply();
 		boardAppearance->apply();
-		boardB->draw(BOARD_B_DIVISIONS,0,0,1,1);
+		boardB->draw(BOARD_B_DIVISIONS, 0, -0.14, 1, 1.14);
+
 	glPopMatrix();
 
 

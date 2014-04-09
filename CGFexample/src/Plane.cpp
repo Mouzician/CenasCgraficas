@@ -1,6 +1,6 @@
 #include "Plane.h"
 #include <GL/GLU.h>
-
+#include <cmath>
 
 Plane::Plane(void)
 {
@@ -43,7 +43,7 @@ void Plane::draw()
 }
 
 
-void Plane::draw (int divisions,int si, int ti, int sf, int tf)
+void Plane::draw (int divisions,double si, double ti, double sf, double tf)
 {
 	    _numDivisions = divisions;
 		glPushMatrix();

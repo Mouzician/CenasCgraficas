@@ -8,7 +8,7 @@ public:
 	Plane(int);
 	~Plane(void);
 	void draw();
-	void draw(int divisions,int si, int ti, int sf, int tf);
+	void draw(int divisions,double si, double ti, double sf, double tf);
 private:
 	int _numDivisions; // Number of triangles that constitute rows/columns
 };
