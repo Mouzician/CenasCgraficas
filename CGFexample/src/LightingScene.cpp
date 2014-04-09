@@ -246,8 +246,9 @@ void LightingScene::display()
 	//LeftWall
 	glPushMatrix();
 		glTranslated(0,4,7.5);
-		glRotated(-90.0,0,0,1);
+		glRotated(-90,0,0,1);
 		glScaled(8,0.2,15);
+		glRotated(90, 0, 1, 0);
 		windowAppearance->apply();
 		wall->draw(10, -1, -1, 2, 2);
 	glPopMatrix();
@@ -278,7 +279,7 @@ void LightingScene::display()
 		glRotated(90.0,1,0,0);
 		//materialB->apply();
 		boardAppearance->apply();
-		boardB->draw(BOARD_B_DIVISIONS,0,-0.14,1,1.14);
+		boardB->draw(BOARD_B_DIVISIONS,0,0,1,1);
 	glPopMatrix();
 
 
