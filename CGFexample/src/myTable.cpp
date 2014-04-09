@@ -88,6 +88,7 @@ float ambP1[3] = {0.329412, 0.223529, 0.027451};
 float difP1[3] = {0.780392, 0.568627, 0.113725};
 float specP1[3] = {0.992157	, 0.941176	, 0.807843	};//{0.8,0.8,0.8}
 float shininessP1 = 28.f;
+
 // Coefficients for material P2
 float ambP2[3] = {0.0, 0.0, 0.0};
 float difP2[3] = {0.1, 0.35, 0.1};
@@ -101,14 +102,21 @@ float specTx[3] = {0.8, 0.8, 0.8};
 float shininessTx = 10.f;
 
 
+
+
 void myTable :: draw(){
 
 	materialT = new CGFappearance(ambT,difT,specT,shininessT);
 	materialP1 = new CGFappearance(ambP1,difP1,specP1,shininessP1);
+	
+	
 	CGFappearance* tableAppearance = new CGFappearance(ambTx,difTx,specTx,shininessTx);
 	tableAppearance->setTexture("table.png");
 	tableAppearance ->setTextureWrap(GL_REPEAT, GL_REPEAT);
-	
+
+
+
+
 	//Tampo
 	myUnitCube top;
 	glPushMatrix();

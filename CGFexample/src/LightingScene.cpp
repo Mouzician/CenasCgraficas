@@ -39,9 +39,27 @@ float difB[3] = {0.6, 0.6, 0.6};
 float specB[3] = {0.8, 0.8, 0.8};
 float shininessB = 120.f;
 
+//Coef for Board
+CGFappearance* boardAppearance;
+float ambBoard[3] = {0.2, 0.2, 0.2};
+float difBoard[3] = {0.3, 0.3, 0.3};
+float specBoard[3] = {0.4, 0.4, 0.4};
+float shininessBoard = 120.f;
 
 
+//Coef for Slide
+CGFappearance* slidesAppearance;
+float ambSl[3] = {0.2, 0.2, 0.2};
+float difSl[3] = {0.8, 0.8, 0.8};
+float specSl[3] = {0.2, 0.2, 0.2};
+float shininessSl = 10.f;
 
+//Coef for floor
+CGFappearance* floorAppearance;
+float ambF[3] = {0.2, 0.2, 0.2};
+float difF[3] = {0.6, 0.6, 0.6};
+float specF[3] = {0, 0, 0.8}; //{0.8, 0.8, 0.8}; //{0.2, 0.2, 0.2};
+float shininessF = 120.f; //10.f;
 
 
 float ambientNull[4]={0,0,0,1};
@@ -117,6 +135,19 @@ void LightingScene::init()
 	materialB = new CGFappearance(ambB,difB,specB,shininessB);
 
 
+	//Declares Textures
+	slidesAppearance = new CGFappearance(ambSl,difSl,specSl,shininessSl);
+	slidesAppearance->setTexture("slides.png");
+	slidesAppearance ->setTextureWrap(GL_CLAMP, GL_CLAMP);
+
+	boardAppearance = new CGFappearance(ambBoard,difBoard,specBoard,shininessBoard);
+	boardAppearance->setTexture("board.png");
+	boardAppearance->setTextureWrap(GL_CLAMP, GL_CLAMP);
+
+	floorAppearance = new CGFappearance(ambF,difF,specF,shininessF);
+	floorAppearance->setTexture("floor.png");
+	floorAppearance->setTextureWrap(GL_REPEAT, GL_REPEAT);
+
 
 }
 
@@ -178,6 +209,7 @@ void LightingScene::display()
 	glPushMatrix();
 		glTranslated(7.5,0,7.5);
 		glScaled(15,0.2,15);
+		floorAppearance->apply();
 		wall->draw();
 	glPopMatrix();
 
@@ -204,8 +236,9 @@ void LightingScene::display()
 		glTranslated(4,4,0.2);
 		glScaled(BOARD_WIDTH,BOARD_HEIGHT,1);
 		glRotated(90.0,1,0,0);
-		materialA->apply();
-		boardA->draw();
+		//materialA->apply();
+		slidesAppearance->apply();
+		boardA->drawT(372,512);
 	glPopMatrix();
 	
 	//PlaneB
@@ -213,8 +246,9 @@ void LightingScene::display()
 		glTranslated(10.5,4,0.2);
 		glScaled(BOARD_WIDTH,BOARD_HEIGHT,1);
 		glRotated(90.0,1,0,0);
-		materialB->apply();
-		boardB->draw();
+		//materialB->apply();
+		boardAppearance->apply();
+		boardB->drawT(372,512);
 	glPopMatrix();
 
 
