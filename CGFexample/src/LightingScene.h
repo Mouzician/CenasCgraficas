@@ -27,7 +27,11 @@ public:
 	CGFappearance* materialB;
 	myCylinder* cylinder;
 	myCylinder* cylinder2;
-
+	CGFappearance* windowAppearance;
+	CGFappearance* floorAppearance;
+	CGFappearance* slidesAppearance;
+	CGFappearance* boardAppearance;
+	CGFappearance* clockAppearance;
 
 	~LightingScene();
 };

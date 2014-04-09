@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\LightingScene.h" />
+    <ClInclude Include="src\MyClock.h" />
     <ClInclude Include="src\myCylinder.h" />
     <ClInclude Include="src\myTable.h" />
     <ClInclude Include="src\Plane.h" />
@@ -20,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="src\LightingScene.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MyClock.cpp" />
     <ClCompile Include="src\myCylinder.cpp" />
     <ClCompile Include="src\myTable.cpp" />
     <ClCompile Include="src\Plane.cpp" />

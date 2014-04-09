@@ -43,7 +43,6 @@ float specB[3] = {0.8, 0.8, 0.8};
 float shininessB = 120.f;
 
 //Coef for Board
-CGFappearance* boardAppearance;
 float ambBoard[3] = {0.2, 0.2, 0.2};
 float difBoard[3] = {0.3, 0.3, 0.3};
 float specBoard[3] = {0.4, 0.4, 0.4};
@@ -51,21 +50,18 @@ float shininessBoard = 120.f;
 
 
 //Coef for Slide
-CGFappearance* slidesAppearance;
 float ambSl[3] = {0.2, 0.2, 0.2};
 float difSl[3] = {0.8, 0.8, 0.8};
 float specSl[3] = {0.2, 0.2, 0.2};
 float shininessSl = 10.f;
 
 //Coef for floor
-CGFappearance* floorAppearance;
 float ambF[3] = {0.2, 0.2, 0.2};
 float difF[3] = {0.6, 0.6, 0.6};
 float specF[3] = {0, 0, 0.8}; 
 float shininessF = 120.f; //10.f;
 
 //Coef for LeftWall
-CGFappearance* windowAppearance;
 float ambW[3] = {0.2, 0.2, 0.2};
 float difW[3] = {0.6, 0.6, 0.6};
 float specW[3] = {0, 0, 0.8}; 
@@ -177,6 +173,10 @@ void LightingScene::init()
 	windowAppearance = new CGFappearance(ambW,difW,specW,shininessW);
 	windowAppearance->setTexture("window.png");
 	windowAppearance->setTextureWrap(GL_CLAMP, GL_CLAMP);
+
+	clockAppearance = new CGFappearance(ambW,difW,specW,shininessW);
+	clockAppearance->setTexture("clock.png");
+	clockAppearance->setTextureWrap(GL_CLAMP,GL_CLAMP);
 
 }
 
@@ -299,6 +299,7 @@ LightingScene::~LightingScene()
 	delete(light1);
 	delete(light2);
 	delete(light3);
+	delete(light4);
 	delete(table);
 	delete(wall);
 	delete(boardA);
