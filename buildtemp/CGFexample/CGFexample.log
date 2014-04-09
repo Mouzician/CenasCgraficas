@@ -1,4 +1,4 @@
-﻿Build started 09/04/2014 09:45:54.
+﻿Build started 09/04/2014 11:33:48.
      1>Project "D:\Workspace-GitHub\CenasCgraficas\CGFexample\CGFexample.vcxproj" on node 2 (Build target(s)).
      1>InitializeBuildStatus:
          Creating "..\buildtemp\CGFexample\CGFexample.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -11,17 +11,6 @@
          ..\buildtemp\CGFexample\myCylinder.obj
          ..\buildtemp\CGFexample\myTable.obj
          ..\buildtemp\CGFexample\Plane.obj
-     1>CGFlib.lib(CGFappearance.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'CGFlib.lib(CGFappearance.obj)' or at 'D:\Workspace-GitHub\CenasCgraficas\CGFexample\bin\vc110.pdb'; linking object as if no debug info
-     1>CGFlib.lib(CGFapplication.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'CGFlib.lib(CGFapplication.obj)' or at 'D:\Workspace-GitHub\CenasCgraficas\CGFexample\bin\vc110.pdb'; linking object as if no debug info
-     1>CGFlib.lib(CGFaxis.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'CGFlib.lib(CGFaxis.obj)' or at 'D:\Workspace-GitHub\CenasCgraficas\CGFexample\bin\vc110.pdb'; linking object as if no debug info
-     1>CGFlib.lib(CGFcamera.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'CGFlib.lib(CGFcamera.obj)' or at 'D:\Workspace-GitHub\CenasCgraficas\CGFexample\bin\vc110.pdb'; linking object as if no debug info
-     1>CGFlib.lib(CGFinterface.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'CGFlib.lib(CGFinterface.obj)' or at 'D:\Workspace-GitHub\CenasCgraficas\CGFexample\bin\vc110.pdb'; linking object as if no debug info
-     1>CGFlib.lib(CGFlight.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'CGFlib.lib(CGFlight.obj)' or at 'D:\Workspace-GitHub\CenasCgraficas\CGFexample\bin\vc110.pdb'; linking object as if no debug info
-     1>CGFlib.lib(CGFobject.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'CGFlib.lib(CGFobject.obj)' or at 'D:\Workspace-GitHub\CenasCgraficas\CGFexample\bin\vc110.pdb'; linking object as if no debug info
-     1>CGFlib.lib(CGFscene.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'CGFlib.lib(CGFscene.obj)' or at 'D:\Workspace-GitHub\CenasCgraficas\CGFexample\bin\vc110.pdb'; linking object as if no debug info
-     1>CGFlib.lib(CGFtexture.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'CGFlib.lib(CGFtexture.obj)' or at 'D:\Workspace-GitHub\CenasCgraficas\CGFexample\bin\vc110.pdb'; linking object as if no debug info
-     1>CGFlib.lib(imagetools.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'CGFlib.lib(imagetools.obj)' or at 'D:\Workspace-GitHub\CenasCgraficas\CGFexample\bin\vc110.pdb'; linking object as if no debug info
-     1>CGFlib.lib(stb_image.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'CGFlib.lib(stb_image.obj)' or at 'D:\Workspace-GitHub\CenasCgraficas\CGFexample\bin\vc110.pdb'; linking object as if no debug info
          CGFexample.vcxproj -> D:\Workspace-GitHub\CenasCgraficas\CGFexample\bin\CGFexample.exe
        FinalizeBuildStatus:
          Deleting file "..\buildtemp\CGFexample\CGFexample.unsuccessfulbuild".
@@ -30,4 +19,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.24
+Time Elapsed 00:00:01.08

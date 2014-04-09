@@ -42,43 +42,35 @@ void Plane::draw()
 
 }
 
-void Plane::drawT(int height, int width)
+
+void Plane::draw (int divisions,int si, int ti, int sf, int tf)
 {
-	glPushMatrix();
-	glRotatef(180.0,1,0,0);
-	glTranslatef(-0.5,0.0,-0.5);
-	glScalef(1.0/(double) _numDivisions, 1 ,1.0/(double) _numDivisions);
-	glNormal3f(0,-1,0);
+	    _numDivisions = divisions;
+		glPushMatrix();
+		glRotatef(180.0,1,0,0);
+		glTranslatef(-0.5,0.0,-0.5);
+		glScalef(1.0/(double) _numDivisions, 1 ,1.0/(double) _numDivisions);
+		glNormal3f(0,-1,0);
+		double div = 1/(float)_numDivisions;
 
-
-
-	//getting texture width
-	int texW;
-	glGetTexLevelParameteriv(GL_TEXTURE_2D, 0 , GL_TEXTURE_WIDTH, &texW );
-
-	//getting texture height
-	int texH;
-	glGetTexLevelParameteriv(GL_TEXTURE_2D, 0 , GL_TEXTURE_WIDTH, &texH);
-
-	double inc = ((texW*height/width)/texH)/2;
-
-	for (int bx = 0; bx<_numDivisions; bx++)
-	{
-		glBegin(GL_TRIANGLE_STRIP);
-		glTexCoord2d(0-inc ,0);
-		glVertex3f(bx, 0, 0);
-		for (int bz = 0; bz<_numDivisions; bz++)
+		for (int bx = 0; bx<_numDivisions; bx++)
 		{
-			glTexCoord2d((bx+1)/(_numDivisions*1.0)  ,bz/(_numDivisions*1.0));
-			glVertex3f(bx + 1, 0, bz);
-			glTexCoord2d(bx/(_numDivisions*1.0)  ,(bz+1)/(_numDivisions*1.0));
-			glVertex3f(bx, 0, bz + 1);
-		}
-		glTexCoord2d(1+inc  , 1);
-		glVertex3d(bx+ 1, 0, _numDivisions);
+			glBegin(GL_TRIANGLE_STRIP);
+				glTexCoord2f(si+abs(sf-si)*(bx/(double)_numDivisions), 0);
+				glVertex3f(bx, 0, 0);
 
-		glEnd();
-	}
+				for (int bz = 0; bz<_numDivisions; bz++)
+				{
+					glTexCoord2f(si+abs(sf-si)*((bx+1)/(double)_numDivisions),ti+abs(tf-ti)*(bz/(double)_numDivisions));
+					glVertex3f(bx + 1, 0, bz);
+					glTexCoord2f(si+abs(sf-si)*(bx/(double)_numDivisions),ti+abs(tf-ti)*((bz+1)/(double)_numDivisions));
+					glVertex3f(bx, 0, bz + 1);
+				}
+				glTexCoord2f(si+abs(sf-si)*((bx+1)/(double)_numDivisions),ti+abs(tf-ti));
+				glVertex3d(bx+ 1, 0, _numDivisions);
+
+			glEnd();
+		}
 	glPopMatrix();
 
 }

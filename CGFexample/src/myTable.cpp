@@ -158,6 +158,8 @@ void myTable :: draw(){
 	
 }
 
+
+
 void myFloor :: draw(){
 	glPushMatrix();
 	glTranslated(0,0.05,0);
