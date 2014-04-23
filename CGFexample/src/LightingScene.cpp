@@ -75,8 +75,14 @@ float ambientNull[4]={0,0,0,1};
 float yellow[4]={1,1,0,1};
 float green[4]={0,1,0,1};
 
+void LightingScene :: toggleSomething(){
+
+}
+
 void LightingScene::init() 
 {
+	sceneVar = 0;
+
 	// Enables lighting computations
 	glEnable(GL_LIGHTING);
 	glShadeModel(GL_SMOOTH);

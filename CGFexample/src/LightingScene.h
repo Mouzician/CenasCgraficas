@@ -12,6 +12,8 @@ class LightingScene : public CGFscene
 public:
 	void init();
 	void display();
+	void toggleSomething();
+	int sceneVar;
 
 	CGFlight* light0;
 	CGFlight* light1;
