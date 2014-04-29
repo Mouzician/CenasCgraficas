@@ -5,19 +5,17 @@
 const double convert = M_PI / 180; // graus para rads
 
 myCylinder::myCylinder(int slices, int stacks, bool smooth) {
-
 	this->slices=slices;
 	this->stacks=stacks;
 	this->smooth=smooth;
 }
-
 
 void myCylinder::draw() {
 	double alpha = 360.0 / slices;
 	double x1, y1, x2, y2, z1, z2;
 	double stackHeight;
 
-	// 1st base
+	//base
 	glNormal3d(0, 0, 1);
 	glBegin(GL_POLYGON);
 	for (int i = 0; i < slices; i++) {
@@ -29,7 +27,7 @@ void myCylinder::draw() {
 	}
 	glEnd();
 
-	// 2nd base
+	// topo
 	glPushMatrix();
 	glRotated(180.0, 1, 0, 0);
 	glNormal3d(0, 0, 1);
@@ -43,7 +41,7 @@ void myCylinder::draw() {
 	glEnd();
 	glPopMatrix();
 
-	// body
+	// corpo
 	x2 = cos(0);
 	y2 = sin(0);
 	stackHeight = 1.0 / stacks;
@@ -55,7 +53,6 @@ void myCylinder::draw() {
 		y2 = sin(convert * alpha * (i + 1));
 		z2 = 1;
 
-		// flat shading
 		if (!smooth) {
 			double ax, ay;
 			ax = (x1 + x2) / 2;
