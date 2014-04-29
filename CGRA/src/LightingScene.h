@@ -6,12 +6,14 @@
 #include "myTable.h"
 #include "Plane.h"
 #include "myCylinder.h"
+#include "MyClock.h"
 
 class LightingScene : public CGFscene
 {
 public:
 	void init();
 	void display();
+	void update(unsigned long sysTime);
 
 	CGFlight* light0;
 	CGFlight* light1;
@@ -19,6 +21,7 @@ public:
 	CGFlight* light3;
 	CGFlight* light4;
 
+	MyClock* clock;
 	myTable* table;
 	Plane* wall;
 	Plane* boardA;

@@ -151,6 +151,7 @@ void LightingScene::init()
 	boardB = new Plane(BOARD_B_DIVISIONS);
 	cylinder = new myCylinder(30, 50, true);
 	cylinder2 = new myCylinder(30, 50, false);
+	clock = new MyClock();
 	
 	//Declares materials
 	materialA = new CGFappearance(ambA,difA,specA,shininessA);
@@ -178,6 +179,12 @@ void LightingScene::init()
 	clockAppearance->setTexture("clock.png");
 	clockAppearance->setTextureWrap(GL_CLAMP,GL_CLAMP);
 
+	setUpdatePeriod(100);
+
+}
+
+void LightingScene::update(unsigned long sysTime) {
+	clock->update(sysTime);
 }
 
 void LightingScene::display() 
@@ -209,11 +216,19 @@ void LightingScene::display()
 
 	// ---- BEGIN Primitive drawing section
 
-	//cylinder 1
+	// Clock
+	glPushMatrix();
+	glTranslated(7.5, 7, 0);
+	glScaled(1, 1, 0.5);
+	clock->draw();
+	glPopMatrix();
 	
+
+	//cylinder 1
 	glPushMatrix();
 	glTranslatef(1,0,14); 
     glScalef(1,8,1); 
+	glRotated(-90, 1, 0, 0);
 	cylinder->draw();
 	glPopMatrix();
 
@@ -221,6 +236,7 @@ void LightingScene::display()
 	glPushMatrix();
 	glTranslatef(14,0,1); 
     glScalef(1,8,1); 
+	glRotated(-90, 1, 0, 0);
 	cylinder2->draw();
 	glPopMatrix();
 

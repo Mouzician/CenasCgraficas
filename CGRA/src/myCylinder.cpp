@@ -1,4 +1,8 @@
 #include "myCylinder.h"
+#define _USE_MATH_DEFINES
+#include <cmath>
+
+const double convert = M_PI / 180; // graus para rads
 
 myCylinder::myCylinder(int slices, int stacks, bool smooth) {
 
@@ -8,97 +12,80 @@ myCylinder::myCylinder(int slices, int stacks, bool smooth) {
 }
 
 
-void myCylinder::draw()
-{
-	
-	float angle = 360/slices; 		//angulo
-	float it = 0 ;		//contador do angulo para cada rotacao
-	float stc=stacks;	//nr de stacks
-	float nr_stacks=0;		//contador de stacks
-	
-  
-    float coss = cos(((angle/2) * 3.14)/180); 
-    float sen = sin(((angle/2) * 3.14)/180); 
-  
-  
-    glBegin(GL_POLYGON); 
-        for(int i=0; i<slices;i++){ 
-  
-            float coss2 = cos(((angle*i) * 3.14)/180); 
-            float sen2 = sin(((angle*i) * 3.14)/180); 
-  
-            glVertex3d(sen2,1,coss2);           
-        } 
-  
-        glEnd(); 
-  
-        glPushMatrix(); 
-  
-        glRotatef(180, 1,0,0); 
-        glBegin(GL_POLYGON); 
-        for(int i=0; i<slices;i++)
-		{ 
-             float coss2 = cos(((angle*i) * 3.14)/180); 
-            float sen2 = sin(((angle*i) * 3.14)/180); 
- 
-            glVertex3d(sen2,0,coss2);    
-        } 
-  
-        glEnd(); 
-  
-        glPopMatrix(); 
-  
-  
-    for(int s=0; s<stacks;s++)		// desenha cada andar do cilindro  
-	{ 
-          
-        glPushMatrix(); 
-        glTranslatef(0,nr_stacks,0);		// quando aumenta o s_it, desenha mais acima 
-  
-  
-    for(int i=0; i < slices; i++)	// desenha cada face do cilindro 
-    { 
-        glPushMatrix(); 
-          
-        glRotatef(it,0,1,0);		// roda o angulo para a posiçao certa 
-        glTranslatef(0,0,-coss);  
-  
-        if(smooth)		    // normais sao definidas como se se desenhasse um cilindro perfeito 
-		{   
-        glBegin(GL_POLYGON); 
-        glNormal3f(-sen,0,-coss); 
-        glVertex3d(-sen,0,0); 
-        glNormal3f(-sen,0,-coss); 
-        glVertex3d(-sen,1/stc,0); 
-        glNormal3f(sen,0,-coss); 
-        glVertex3d(sen,1/stc,0); 
-        glNormal3f(sen,0,-coss); 
-        glVertex3d(sen,0,0); 
-          
-        glEnd(); 
-        glPopMatrix(); 
-  
-        }
-		else		    // normais definidas para a visualizaçao de um paralelepipedo com varios lados 
-		{ 
-        glBegin(GL_POLYGON); 
-        glNormal3f(0,0,-1); 
-        glVertex3d(-sen,0,0); 
-        glNormal3f(0,0,-1); 
-        glVertex3d(-sen,1/stc,0); 
-        glNormal3f(0,0,-1); 
-        glVertex3d(sen,1/stc,0); 
-        glNormal3f(0,0,-1); 
-        glVertex3d(sen,0,0); 
-          
-        glEnd(); 
-        glPopMatrix(); 
-        } 
-        it+=angle;     
-} 
-  
-    glPopMatrix(); 
-    nr_stacks+=1/stc; 
+void myCylinder::draw() {
+	double alpha = 360.0 / slices;
+	double x1, y1, x2, y2, z1, z2;
+	double stackHeight;
 
-    } 
+	// 1st base
+	glNormal3d(0, 0, 1);
+	glBegin(GL_POLYGON);
+	for (int i = 0; i < slices; i++) {
+		x1 = cos(convert * alpha * i);
+		y1 = sin(convert * alpha * i);
+
+		glTexCoord2d(0.5 + x1 * 0.5, 0.5 + y1 * 0.5);
+		glVertex3d(x1, y1, 1);
+	}
+	glEnd();
+
+	// 2nd base
+	glPushMatrix();
+	glRotated(180.0, 1, 0, 0);
+	glNormal3d(0, 0, 1);
+	glBegin(GL_POLYGON);
+	for (int i = 0; i < slices; i++) {
+		x1 = cos(convert * alpha * i);
+		y1 = sin(convert * alpha * i);
+
+		glVertex3d(x1, y1, 0);
+	}
+	glEnd();
+	glPopMatrix();
+
+	// body
+	x2 = cos(0);
+	y2 = sin(0);
+	stackHeight = 1.0 / stacks;
+
+	for (int i = 0; i < slices; i++) {
+		x1 = x2;
+		y1 = y2;
+		x2 = cos(convert * alpha * (i + 1));
+		y2 = sin(convert * alpha * (i + 1));
+		z2 = 1;
+
+		// flat shading
+		if (!smooth) {
+			double ax, ay;
+			ax = (x1 + x2) / 2;
+			ay = (y1 + y2) / 2;
+
+			double nx, ny, nc;
+			nc = sqrt(ax * ax + ay * ay);
+			nx = ax / nc;
+			ny = ay / nc;
+
+			glNormal3d(nx, ny, 0);
+		}
+
+		for (int j = 0; j < stacks; j++) {
+			z1 = z2;
+			z2 -= stackHeight;
+
+			glBegin(GL_QUADS);
+
+			if (smooth)
+				glNormal3d(x1, y1, 0);
+			glVertex3d(x1, y1, z1);
+			glVertex3d(x1, y1, z2);
+
+			if (smooth)
+				glNormal3d(x2, y2, 0);
+			glVertex3d(x2, y2, z2);
+			glVertex3d(x2, y2, z1);
+
+			glEnd();
+		}
+	}
 }
