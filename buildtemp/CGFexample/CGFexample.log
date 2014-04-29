@@ -1,0 +1,17 @@
+﻿Build started 29/04/2014 16:22:52.
+     1>Project "D:\Workspace-GitHub\CenasCgraficas\CGRA\CGFexample.vcxproj" on node 2 (Build target(s)).
+     1>InitializeBuildStatus:
+         Creating "..\buildtemp\CGFexample\CGFexample.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         CGFexample.vcxproj -> D:\Workspace-GitHub\CenasCgraficas\CGRA\bin\CGFexample.exe
+       FinalizeBuildStatus:
+         Deleting file "..\buildtemp\CGFexample\CGFexample.unsuccessfulbuild".
+         Touching "..\buildtemp\CGFexample\CGFexample.lastbuildstate".
+     1>Done Building Project "D:\Workspace-GitHub\CenasCgraficas\CGRA\CGFexample.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.04
