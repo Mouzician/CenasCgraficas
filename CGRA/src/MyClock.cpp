@@ -12,7 +12,7 @@ MyClock::MyClock() {
 	secondsP = new MyClockHand(0.7);
 	secondsP->setAngle(270);
 
-	// Coefficients for clock material
+	// Coef para o clock
 	float amb[3] = { 0.2, 0.2, 0.2 };
 	float dif[3] = { 0.6, 0.6, 0.6 };
 	float spec[3] = { 0.2, 0.2, 0.2 };
@@ -41,10 +41,8 @@ void MyClock::update(unsigned long sysTime) {
 
 void MyClock::draw() {
 	glPushMatrix();
-
 	texture->apply();
 	clockP->draw();
-
 	glTranslated(0, 0, 1);
 	hoursP->draw();
 	minutesP->draw();
