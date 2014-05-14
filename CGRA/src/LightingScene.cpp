@@ -4,6 +4,7 @@
 #include "myTable.h"
 #include "Plane.h"
 #include "myCylinder.h"
+#include "MyRobot.h"
 
 #include <math.h>
 
@@ -77,6 +78,9 @@ float green[4]={0,1,0,1};
 
 void LightingScene::init() 
 {
+
+	sceneVar = 0;
+
 	// Enables lighting computations
 	glEnable(GL_LIGHTING);
 	glShadeModel(GL_SMOOTH);
@@ -152,6 +156,7 @@ void LightingScene::init()
 	cylinder = new myCylinder(30, 50, true);
 	cylinder2 = new myCylinder(30, 50, false);
 	clock = new MyClock();
+	Robot = new MyRobot(12);
 	
 	//Declares materials
 	materialA = new CGFappearance(ambA,difA,specA,shininessA);
@@ -243,13 +248,13 @@ void LightingScene::display()
 	//First Table
 	glPushMatrix();
 		glTranslated(5,0,8);
-		table->draw();
+		//table->draw();
 	glPopMatrix();
 
 	//Second Table
 	glPushMatrix();
 		glTranslated(12,0,8);
-		table->draw();
+		//table->draw();
 	glPopMatrix();
 
 	//Floor
@@ -277,6 +282,15 @@ void LightingScene::display()
 		glScaled(15,0.2,8);
 		wall->draw();
 	glPopMatrix();
+
+	//Robot
+	glPushMatrix();
+	glTranslated(5,0,5);
+	glScaled(5,5,5);
+	Robot->draw();
+
+	glPopMatrix();
+
 
 
 	// Board A
@@ -327,5 +341,10 @@ LightingScene::~LightingScene()
 	delete(materialB);
 	delete(cylinder);
 	delete(cylinder2);
+	delete(Robot);
 
+}
+
+
+void LightingScene:: toggleSomething(){
 }

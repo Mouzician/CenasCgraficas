@@ -16,14 +16,21 @@
     <ClCompile Include="src\MyClock.cpp" />
     <ClCompile Include="src\MyClockHand.cpp" />
     <ClCompile Include="src\myCylinder.cpp" />
+    <ClCompile Include="src\myLamp.cpp" />
+    <ClCompile Include="src\MyPoint.cpp" />
+    <ClCompile Include="src\MyRobot.cpp" />
     <ClCompile Include="src\myTable.cpp" />
     <ClCompile Include="src\Plane.cpp" />
+    <ClCompile Include="src\TPinterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\LightingScene.h" />
     <ClInclude Include="src\MyClock.h" />
     <ClInclude Include="src\MyClockHand.h" />
     <ClInclude Include="src\myCylinder.h" />
+    <ClInclude Include="src\myLamp.h" />
+    <ClInclude Include="src\MyPoint.h" />
+    <ClInclude Include="src\MyRobot.h" />
     <ClInclude Include="src\myTable.h" />
     <ClInclude Include="src\Plane.h" />
     <ClInclude Include="src\TPinterface.h" />

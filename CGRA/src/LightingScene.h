@@ -7,6 +7,7 @@
 #include "Plane.h"
 #include "myCylinder.h"
 #include "MyClock.h"
+#include "MyRobot.h"
 
 class LightingScene : public CGFscene
 {
@@ -14,6 +15,9 @@ public:
 	void init();
 	void display();
 	void update(unsigned long sysTime);
+	void toggleSomething();
+
+	int sceneVar;
 
 	CGFlight* light0;
 	CGFlight* light1;
@@ -30,6 +34,8 @@ public:
 	CGFappearance* materialB;
 	myCylinder* cylinder;
 	myCylinder* cylinder2;
+	MyRobot* Robot;
+	
 	CGFappearance* windowAppearance;
 	CGFappearance* floorAppearance;
 	CGFappearance* slidesAppearance;
