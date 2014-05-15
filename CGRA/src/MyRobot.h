@@ -14,7 +14,7 @@
 #define PI 3.14159265359
 
 #include "myLamp.h"
-#include "myCylinder.h"
+//#include "myCylinder.h"
 #include "MyPoint.h"
 #include <deque>
 

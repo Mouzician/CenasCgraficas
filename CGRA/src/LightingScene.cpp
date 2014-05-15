@@ -69,9 +69,6 @@ float specW[3] = {0, 0, 0.8};
 float shininessW = 120.f; //10.f;
 
 
-
-
-
 float ambientNull[4]={0,0,0,1};
 float yellow[4]={1,1,0,1};
 float green[4]={0,1,0,1};
@@ -98,17 +95,13 @@ void LightingScene::init()
 
 	light0 = new CGFlight(GL_LIGHT0, light0_pos);
 	light0->setAmbient(ambientNull);
-
-
-	light0->disable();
 	light0->enable();
+	light0On = 1;
 
 	light1 = new CGFlight(GL_LIGHT1, light1_pos);
 	light1->setAmbient(ambientNull);
-	
-	light1->disable();
 	light1->enable();
-	
+	light1On = 1;
 
 	//light2
 	light2 = new CGFlight(GL_LIGHT2, light2_pos);
@@ -117,9 +110,8 @@ void LightingScene::init()
 	//light2->setKl(0.2);
 	light2->setKl(1);
 	light2->setKq(0);
-	
-	light2->disable();
 	light2->enable();
+	light2On = 1;
 
 	//light3
 	light3 = new CGFlight(GL_LIGHT3, light3_pos);
@@ -127,9 +119,8 @@ void LightingScene::init()
 	light3->setKc(0);
 	light3->setKl(0);
 	light3->setKq(0.2);
-	
-	light3->disable();
 	light3->enable();
+	light3On = 1;
 
 	//light4
 	light4 = new CGFlight(GL_LIGHT4, light4_pos);
@@ -138,12 +129,8 @@ void LightingScene::init()
 	light4->setKc(0.0);
 	light4->setKl(0.0);
 	light4->setKq(1.0);
-
-	light4->disable();
 	light4->enable();
-
-
-
+	light4On = 1;
 
 	// Uncomment below to enable normalization of lighting normal vectors
 	glEnable (GL_NORMALIZE);
