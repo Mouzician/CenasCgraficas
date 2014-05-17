@@ -11,16 +11,15 @@ class Point {
 public:
     Point(double x, double y, double z);
     Point(double s, double t);
+	Point();
 double x;
 double y;
 double z;
     double length();
     Point & operator+(const Point &p);
+	Point & operator-(const Point &p);
 
 };
 
-Point calculateSurfaceNormal(vector<Point> polygon);
-
-Point calculateSurfaceNormalTriangle(vector<Point> triangle);
 
 #endif

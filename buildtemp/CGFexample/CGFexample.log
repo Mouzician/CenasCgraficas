@@ -1,20 +1,10 @@
-﻿Build started 14/05/2014 09:28:26.
+﻿Build started 17/05/2014 13:18:53.
      1>Project "D:\Workspace-GitHub\CenasCgraficas\CGRA\CGFexample.vcxproj" on node 2 (Build target(s)).
      1>InitializeBuildStatus:
          Creating "..\buildtemp\CGFexample\CGFexample.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"..\buildtemp\CGFexample\\" /Fd"..\buildtemp\CGFexample\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\LightingScene.cpp src\MyRobot.cpp src\TPinterface.cpp src\main.cpp
-         LightingScene.cpp
-         Generating Code...
-         Compiling...
-         main.cpp
-         TPinterface.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"..\buildtemp\CGFexample\\" /Fd"..\buildtemp\CGFexample\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\MyRobot.cpp
          MyRobot.cpp
-     1>d:\workspace-github\cenascgraficas\cgra\src\myrobot.cpp(45): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\workspace-github\cenascgraficas\cgra\src\myrobot.cpp(50): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\workspace-github\cenascgraficas\cgra\src\myrobot.cpp(173): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\workspace-github\cenascgraficas\cgra\src\myrobot.cpp(221): warning C4018: '<' : signed/unsigned mismatch
-         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"bin\CGFexample.exe" /INCREMENTAL /NOLOGO glew32.lib CGFlib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"bin\CGFexample.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"bin\CGFexample.lib" /MACHINE:X86 ..\buildtemp\CGFexample\LightingScene.obj
          ..\buildtemp\CGFexample\main.obj
@@ -35,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.35
+Time Elapsed 00:00:01.04

@@ -18,6 +18,7 @@ public:
 	void toggleSomething();
 
 	int sceneVar;
+	int ClockStop;
 
 	CGFlight* light0; int light0On;
 	CGFlight* light1; int light1On;
@@ -41,6 +42,7 @@ public:
 	CGFappearance* slidesAppearance;
 	CGFappearance* boardAppearance;
 	CGFappearance* clockAppearance;
+	CGFappearance* robotAppearance;
 
 	~LightingScene();
 };

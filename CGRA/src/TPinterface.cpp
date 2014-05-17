@@ -7,8 +7,6 @@ TPinterface::TPinterface()
 }
 
 
-
-
 void TPinterface::processKeyboard(unsigned char key, int x, int y)
 {
 	// Uncomment below if you would like to process the default keys (e.g. 's' for snapshot, 'Esc' for exiting, ...)
@@ -67,6 +65,30 @@ void TPinterface::initGUI()
     addCheckboxToPanel(lightsPanel, (char*)"Luz 3", &(((LightingScene*) scene)->light2On), 2);
     addCheckboxToPanel(lightsPanel, (char*)"Luz 4", &(((LightingScene*) scene)->light3On), 3);
     addCheckboxToPanel(lightsPanel, (char*)"Luz 5", &(((LightingScene*) scene)->light4On), 4);
+
+
+	addColumn();
+    
+    addButton((char*)"Parar/Continuar Relogio", 5);
+        
+    GLUI_Panel * texturePanel = addPanel( (char*)"Robot");
+    
+    GLUI_Listbox * textureList = addListboxToPanel(texturePanel, (char*)"Textura ", &(((LightingScene*) scene)->Robot->texture), 6);
+    
+    //textureList->add_item (0, "Nenhuma");
+    textureList->add_item (1, "Normal");
+    textureList->add_item (2, "Wall-e");
+    textureList->add_item (3, "Android");
+    textureList->add_item (4, "Laser");
+    textureList->add_item (5, "Matrix");
+    
+    textureList->set_int_val (1);
+    
+    GLUI_RadioGroup * radioGroup = addRadioGroupToPanel (texturePanel, &(((LightingScene*) scene)->Robot->mode) , 7);
+    
+    
+    addRadioButtonToGroup(radioGroup, (char*) "Wireframe");
+	addRadioButtonToGroup(radioGroup, (char*) "Com textura");
     
 }
 
@@ -137,6 +159,11 @@ void TPinterface::processGUI(GLUI_Control *ctrl)
             else
                 ((LightingScene*) scene)->light4->enable();
           
+            break;
+        }
+		 case 5:
+        {
+            ((LightingScene*) scene)->ClockStop = !((LightingScene*) scene)->ClockStop;
             break;
         }
             

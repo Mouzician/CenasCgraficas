@@ -50,7 +50,7 @@ void MyLamp::draw(){
     glEnd();
     
     // the semi sphere
-	for(int i = 0; i < x1.size(); i++)
+	for(unsigned int i = 0; i < x1.size(); i++)
 	{
         glBegin(GL_QUADS);
 

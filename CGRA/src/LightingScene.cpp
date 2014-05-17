@@ -77,6 +77,7 @@ void LightingScene::init()
 {
 
 	sceneVar = 0;
+	ClockStop = 0;
 
 	// Enables lighting computations
 	glEnable(GL_LIGHTING);
@@ -171,11 +172,17 @@ void LightingScene::init()
 	clockAppearance->setTexture("clock.png");
 	clockAppearance->setTextureWrap(GL_CLAMP,GL_CLAMP);
 
+
+	robotAppearance = new CGFappearance(ambW,difW,specW,shininessW);
+	robotAppearance->setTexture("robot1.jpg");
+
 	setUpdatePeriod(100);
 
 }
 
 void LightingScene::update(unsigned long sysTime) {
+
+	if(!ClockStop)
 	clock->update(sysTime);
 }
 
@@ -274,8 +281,8 @@ void LightingScene::display()
 	glPushMatrix();
 	glTranslated(5,0,5);
 	glScaled(5,5,5);
+	Robot->ApllyText(robotAppearance);
 	Robot->draw();
-
 	glPopMatrix();
 
 
@@ -328,8 +335,14 @@ LightingScene::~LightingScene()
 	delete(materialB);
 	delete(cylinder);
 	delete(cylinder2);
+	delete(clock);
 	delete(Robot);
-
+	delete(windowAppearance);
+	delete(floorAppearance);
+	delete(slidesAppearance);
+	delete(boardAppearance);
+	delete(clockAppearance);
+	delete(robotAppearance);
 }
 
 
