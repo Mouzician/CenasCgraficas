@@ -145,6 +145,7 @@ void LightingScene::init()
 	cylinder2 = new myCylinder(30, 50, false);
 	clock = new MyClock();
 	Robot = new MyRobot(12);
+	view = new MyView();
 	
 	//Declares materials
 	materialA = new CGFappearance(ambA,difA,specA,shininessA);
@@ -175,6 +176,7 @@ void LightingScene::init()
 
 	robotAppearance = new CGFappearance(ambW,difW,specW,shininessW);
 	robotAppearance->setTexture("robot1.jpg");
+
 
 	setUpdatePeriod(100);
 
@@ -214,6 +216,15 @@ void LightingScene::display()
 	// ---- END Background, camera and axis setup
 
 	// ---- BEGIN Primitive drawing section
+
+	//sky
+	glPushMatrix();
+        glTranslated(7.5, 0.0, 7.5);
+        glScaled(300.0, 300.0, 300.0);
+        view->draw();
+    glPopMatrix();
+
+
 
 	// Clock
 	glPushMatrix();
@@ -266,8 +277,11 @@ void LightingScene::display()
 		glScaled(8,0.2,15);
 		glRotated(90, 0, 1, 0);
 		windowAppearance->apply();
-		wall->draw(10, -1, -1, 2, 2);
+		wall->setWindow(true);
+		wall->draw(3, -1, -1, 2, 2);
+		//wall->drawHole();
 	glPopMatrix();
+
 
 	//PlaneWall
 	glPushMatrix();

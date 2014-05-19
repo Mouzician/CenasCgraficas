@@ -1,3 +1,4 @@
+
 #include "Plane.h"
 #include <GL/GLU.h>
 #include <cmath>
@@ -5,16 +6,22 @@
 Plane::Plane(void)
 {
 	_numDivisions = 1;
+	_isWindow = false;
 }
 
 Plane::Plane(int n)
 {
 	_numDivisions = n;
+	_isWindow = false;
 }
 
 
 Plane::~Plane(void)
 {
+}
+
+void Plane:: setWindow(bool b){
+	_isWindow = b;
 }
 
 void Plane::draw()
@@ -43,7 +50,7 @@ void Plane::draw()
 }
 
 
-void Plane::draw (int divisions,double si, double ti, double sf, double tf)
+void Plane::draw(int divisions,double si, double ti, double sf, double tf)
 {
 	    _numDivisions = divisions;
 		glPushMatrix();
@@ -51,7 +58,6 @@ void Plane::draw (int divisions,double si, double ti, double sf, double tf)
 		glTranslatef(-0.5,0.0,-0.5);
 		glScalef(1.0/(double) _numDivisions, 1 ,1.0/(double) _numDivisions);
 		glNormal3f(0,-1,0);
-		double div = 1/(float)_numDivisions;
 
 		for (int bx = 0; bx<_numDivisions; bx++)
 		{
@@ -63,6 +69,10 @@ void Plane::draw (int divisions,double si, double ti, double sf, double tf)
 				{
 					glTexCoord2f(si+abs(sf-si)*((bx+1)/(double)_numDivisions),ti+abs(tf-ti)*(bz/(double)_numDivisions));
 					glVertex3f(bx + 1, 0, bz);
+					if(bx == 1 && bz == 1 && _isWindow) {
+					glEnd();
+					glBegin(GL_TRIANGLE_STRIP);
+				}
 					glTexCoord2f(si+abs(sf-si)*(bx/(double)_numDivisions),ti+abs(tf-ti)*((bz+1)/(double)_numDivisions));
 					glVertex3f(bx, 0, bz + 1);
 				}
@@ -73,4 +83,25 @@ void Plane::draw (int divisions,double si, double ti, double sf, double tf)
 		}
 	glPopMatrix();
 
+}
+
+
+float Plane::texCoordX(int b) {
+	switch (b)
+	{
+	case 0:	return -1;
+	case 1: return 0.03;
+	case 2: return 0.97;
+	case 3: return 2;
+	}
+}
+
+float Plane::texCoordZ(int b) {
+	switch (b)
+	{
+	case 0:	return -1;
+	case 1: return 0.05;
+	case 2: return 0.95;
+	case 3: return 2;
+	}
 }

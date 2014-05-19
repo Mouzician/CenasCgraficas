@@ -1,4 +1,4 @@
-﻿Build started 17/05/2014 13:18:53.
+﻿Build started 19/05/2014 14:23:41.
      1>Project "D:\Workspace-GitHub\CenasCgraficas\CGRA\CGFexample.vcxproj" on node 2 (Build target(s)).
      1>InitializeBuildStatus:
          Creating "..\buildtemp\CGFexample\CGFexample.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -15,6 +15,7 @@
          ..\buildtemp\CGFexample\MyPoint.obj
          ..\buildtemp\CGFexample\MyRobot.obj
          ..\buildtemp\CGFexample\myTable.obj
+         ..\buildtemp\CGFexample\MyView.obj
          ..\buildtemp\CGFexample\Plane.obj
          ..\buildtemp\CGFexample\TPinterface.obj
          CGFexample.vcxproj -> D:\Workspace-GitHub\CenasCgraficas\CGRA\bin\CGFexample.exe
@@ -25,4 +26,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.04
+Time Elapsed 00:00:03.88

@@ -8,6 +8,7 @@
 #include "myCylinder.h"
 #include "MyClock.h"
 #include "MyRobot.h"
+#include "MyView.h"
 
 class LightingScene : public CGFscene
 {
@@ -36,6 +37,7 @@ public:
 	myCylinder* cylinder;
 	myCylinder* cylinder2;
 	MyRobot* Robot;
+	MyView* view;
 	
 	CGFappearance* windowAppearance;
 	CGFappearance* floorAppearance;

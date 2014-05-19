@@ -69,8 +69,10 @@ void TPinterface::initGUI()
 
 	addColumn();
     
-    addButton((char*)"Parar/Continuar Relogio", 5);
-        
+	GLUI_Panel *clock= addPanel("Relogio");
+	GLUI_Button *clockbt=addButtonToPanel(clock,"Parar/Continuar",5);
+
+	addColumn();
     GLUI_Panel * texturePanel = addPanel( (char*)"Robot");
     
     GLUI_Listbox * textureList = addListboxToPanel(texturePanel, (char*)"Textura ", &(((LightingScene*) scene)->Robot->texture), 6);

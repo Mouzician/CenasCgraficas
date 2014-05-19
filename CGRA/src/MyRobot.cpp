@@ -89,6 +89,7 @@ MyRobot::MyRobot(int Stacks)
 
 		figura[i][0].normalFinal = newellsNormal(points);
 
+
 		// Topo
 		
 		points.clear();
@@ -269,8 +270,6 @@ Point MyRobot::newellsNormal(vector<Point> points) {
 
 	return normal;
 }
-
-
 void MyRobot::rotateLeft(){
 	rotation += 5;
 }
@@ -286,12 +285,6 @@ void MyRobot::moveBackward(){
 	z = z - cos(rotation*PI/180.0);
 }
 
-void MyRobot::ModeChange(){
-	if(mode == 0)
-		mode = 1;
-	else
-		mode = 0;
-}
 
 void MyRobot::ApllyText(CGFappearance* texture){
 
