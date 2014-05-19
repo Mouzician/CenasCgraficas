@@ -20,6 +20,6 @@ double z;
 	Point & operator-(const Point &p);
 
 };
-
+Point calculateSurfaceNormal(vector<Point> polygon);
 
 #endif
