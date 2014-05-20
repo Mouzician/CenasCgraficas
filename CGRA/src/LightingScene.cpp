@@ -219,8 +219,9 @@ void LightingScene::display()
 
 	//sky
 	glPushMatrix();
-        glTranslated(7.5, 0.0, 7.5);
-        glScaled(300.0, 300.0, 300.0);
+        glTranslated(-10, -5.0, 7.5);
+        //glScaled(300.0, 300.0, 300.0);
+		glScaled(30.0, 15.0, 30.0);
         view->draw();
     glPopMatrix();
 

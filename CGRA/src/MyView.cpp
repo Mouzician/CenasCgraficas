@@ -20,7 +20,7 @@ void MyView::draw()
     view->apply();
 	glPushMatrix();
 	glRotated(-90,0,1,0);
-	glTranslated(0,0,0.5);
+	glTranslated(0,0.5,0.5);
 	glNormal3d(0,0,-1);
     glBegin(GL_QUADS);
     glTexCoord2f(0.0f, 0.0f); glVertex3f(-HALF_SIZE, -HALF_SIZE, 0.0f);
