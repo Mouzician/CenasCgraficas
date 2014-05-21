@@ -8,16 +8,10 @@
 #endif
 
 #include "CGFappearance.h"
-#include "myTable.h"
 #include <math.h>
-
-#define PI 3.14159265359
-
-#include "myLamp.h"
 #include "myCylinder.h"
 #include "MyPoint.h"
-#include <deque>
-
+#define PI 3.14159265359
 
 class MyRobot : public CGFobject {
 
@@ -25,11 +19,11 @@ class MyRobot : public CGFobject {
 		double rotation;
 		double x, y, z;
 		int stacks;
-		  vector<Point> side;
-    vector<Point> normals;
-    deque<deque<Point> > texels;
-		 int deltaSide;
-		 int slices;
+		vector<Point> side;
+		vector<Point> normals;
+		vector<vector<Point> > texels;
+		int deltaSide;
+		int slices;
 
 	public:
 		int mode;

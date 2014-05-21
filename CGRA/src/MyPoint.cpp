@@ -1,5 +1,6 @@
 #include "MyPoint.h"
-
+#include <iostream>
+using namespace std;
 
 Point :: Point(){
 this->x =   this->y =  this->z = 0;
@@ -39,6 +40,11 @@ Point & Point::operator-(const Point &p){
 Point calculateSurfaceNormal(vector<Point> polygon){
     Point normal(0,0,0);
     for (unsigned int i = 0; i < polygon.size(); ++i) {
+		//cout << "x "<<  polygon.at(i).x << endl;
+		//cout << "y "<<  polygon.at(i).y << endl;
+		//cout << "z "<<  polygon.at(i).z << endl;
+		//cout << "\n\n";
+
         Point current = polygon.at(i);
         Point next = polygon.at( (i+1) % polygon.size() );
         

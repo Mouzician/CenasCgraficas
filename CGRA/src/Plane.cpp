@@ -69,7 +69,8 @@ void Plane::draw(int divisions,double si, double ti, double sf, double tf)
 				{
 					glTexCoord2f(si+abs(sf-si)*((bx+1)/(double)_numDivisions),ti+abs(tf-ti)*(bz/(double)_numDivisions));
 					glVertex3f(bx + 1, 0, bz);
-					if(bx == 1 && bz == 1 && _isWindow) {
+
+					if(_isWindow && bx > 144 && bz >146 && bx < 275 && bz < 235) {
 					glEnd();
 					glBegin(GL_TRIANGLE_STRIP);
 				}
@@ -83,25 +84,4 @@ void Plane::draw(int divisions,double si, double ti, double sf, double tf)
 		}
 	glPopMatrix();
 
-}
-
-
-float Plane::texCoordX(int b) {
-	switch (b)
-	{
-	case 0:	return -1;
-	case 1: return 0.03;
-	case 2: return 0.97;
-	case 3: return 2;
-	}
-}
-
-float Plane::texCoordZ(int b) {
-	switch (b)
-	{
-	case 0:	return -1;
-	case 1: return 0.05;
-	case 2: return 0.95;
-	case 3: return 2;
-	}
 }

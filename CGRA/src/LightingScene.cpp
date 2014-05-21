@@ -124,6 +124,7 @@ void LightingScene::init()
 	light3On = 1;
 
 	//light4
+	/*
 	light4 = new CGFlight(GL_LIGHT4, light4_pos);
 	light4->setAmbient(ambientNull);
 	light4->setSpecular(green);
@@ -132,7 +133,7 @@ void LightingScene::init()
 	light4->setKq(1.0);
 	light4->enable();
 	light4On = 1;
-
+	*/
 	// Uncomment below to enable normalization of lighting normal vectors
 	glEnable (GL_NORMALIZE);
 
@@ -208,7 +209,7 @@ void LightingScene::display()
 	light1->draw();
 	light2->draw();
 	light3->draw();
-	light4->draw();
+	//light4->draw();
 
 	// Draw axis
 	axis.draw();
@@ -279,7 +280,7 @@ void LightingScene::display()
 		glRotated(90, 0, 1, 0);
 		windowAppearance->apply();
 		wall->setWindow(true);
-		wall->draw(3, -1, -1, 2, 2);
+		wall->draw(420, -1, -1, 2, 2);
 		//wall->drawHole();
 	glPopMatrix();
 
