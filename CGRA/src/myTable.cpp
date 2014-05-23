@@ -114,9 +114,6 @@ void myTable :: draw(){
 	tableAppearance->setTexture("table.png");
 	tableAppearance ->setTextureWrap(GL_REPEAT, GL_REPEAT);
 
-
-
-
 	//Tampo
 	myUnitCube top;
 	glPushMatrix();
@@ -166,4 +163,54 @@ void myFloor :: draw(){
 	glScaled(8,0.1,6);
 	cube.draw();
 	glPopMatrix();
+}
+
+
+void myChair::draw() {
+	
+	CGFappearance* tableAppearance = new CGFappearance(ambTx,difTx,specTx,shininessTx);
+	tableAppearance->setTexture("table.png");
+	tableAppearance ->setTextureWrap(GL_REPEAT, GL_REPEAT);
+
+	tableAppearance->apply();
+	
+	
+	//Pernas
+	glPushMatrix();
+	glTranslated(0.9, 0.75, -0.9);
+	glScaled(0.2, 1.5, 0.2);
+
+	cube.draw();
+	glPopMatrix();
+	glPushMatrix();
+	glTranslated(0.9, 0.75, 0.9);
+	glScaled(0.2, 1.5, 0.2);
+	cube.draw();
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslated(-0.9, 0.75, -0.9);
+	glScaled(0.2, 1.5, 0.2);
+	cube.draw();
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslated(-0.9, 0.75, 0.9);
+	glScaled(0.2, 1.5, 0.2);
+	cube.draw();
+	glPopMatrix();
+
+	//Tampo
+	glPushMatrix();
+	glTranslated(0.0, 1.6, 0.0);
+	glScaled(2.0, 0.2, 2.0);
+	cube.draw();
+	glPopMatrix();
+
+	//Encosto
+	glPushMatrix();
+	glTranslated(-0.05, 2.5, -0.9);
+	glScaled(2.0, 2.0, 0.2);
+	cube.draw();
+	glPopMatrix();	
 }

@@ -139,6 +139,7 @@ void LightingScene::init()
 
 	//Declares scene elements
 	table = new myTable();
+	chair = new myChair();
 	wall = new Plane();
 	boardA = new Plane(BOARD_A_DIVISIONS);
 	boardB = new Plane(BOARD_B_DIVISIONS);
@@ -261,14 +262,24 @@ void LightingScene::display()
 	//Second Table
 	glPushMatrix();
 		glTranslated(12,0,8);
-		//table->draw();
+		table->draw();
 	glPopMatrix();
+
+	//Chair
+	glPushMatrix();
+	
+		glTranslated(12,0,7);
+		glScaled(1,1.25,1);
+		chair->draw();
+	glPopMatrix();
+
 
 	//Floor
 	glPushMatrix();
 		glTranslated(7.5,0,7.5);
 		glScaled(15,0.2,15);
 		floorAppearance->apply();
+		wall->setWindow(false);
 		wall->draw(120,0, 0, 10, 12);
 	glPopMatrix();
 
@@ -280,8 +291,7 @@ void LightingScene::display()
 		glRotated(90, 0, 1, 0);
 		windowAppearance->apply();
 		wall->setWindow(true);
-		wall->draw(420, -1, -1, 2, 2);
-		//wall->drawHole();
+		wall->draw(105, -1, -1, 2, 2);
 	glPopMatrix();
 
 

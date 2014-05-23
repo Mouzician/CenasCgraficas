@@ -70,7 +70,7 @@ void Plane::draw(int divisions,double si, double ti, double sf, double tf)
 					glTexCoord2f(si+abs(sf-si)*((bx+1)/(double)_numDivisions),ti+abs(tf-ti)*(bz/(double)_numDivisions));
 					glVertex3f(bx + 1, 0, bz);
 
-					if(_isWindow && bx > 144 && bz >146 && bx < 275 && bz < 235) {
+					if(_isWindow && bx > 35 && bz >36 && bx < 69 && bz < 59) {
 					glEnd();
 					glBegin(GL_TRIANGLE_STRIP);
 				}

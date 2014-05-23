@@ -27,4 +27,12 @@ class myFloor: public CGFobject {
 		void draw();
 };
 
+class myChair: public CGFobject {
+	myUnitCube cube;
+	public:
+		void draw();
+};
+
+
+
 #endif

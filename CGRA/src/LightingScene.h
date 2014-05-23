@@ -29,6 +29,7 @@ public:
 
 	MyClock* clock;
 	myTable* table;
+	myChair* chair;
 	Plane* wall;
 	Plane* boardA;
 	Plane* boardB;
