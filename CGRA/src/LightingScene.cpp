@@ -268,7 +268,6 @@ void LightingScene::display()
 
 	//Chair
 	glPushMatrix();
-	
 		glTranslated(12,0,7);
 		glScaled(1,1.25,1);
 		chair->draw();
@@ -315,15 +314,12 @@ void LightingScene::display()
 	glPopMatrix();
 	*/
 	
-	
-	
 	glPushMatrix();
 	glTranslated(5,0,5);
 	//glScaled(5,5,5);
 	Robot->ApllyText(robotAppearance);
 	Robot->draw();
 	glPopMatrix();
-	
 	
 
 	// Board A
