@@ -3,7 +3,6 @@
 
 #include "CGFobject.h"
 #include "CGFappearance.h"
-#define HALF_SIZE 0.5f
 
 class MyView: public CGFobject {
 private:

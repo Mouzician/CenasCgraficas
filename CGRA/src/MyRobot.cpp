@@ -2,10 +2,6 @@
 #include <iostream>
 using namespace std;
 
-
-
-
-
 MyRobot::MyRobot(int stacks){
 	this->mode = 1;
 	this->texture = 1;
@@ -30,25 +26,25 @@ MyRobot::MyRobot(int stacks){
 	// Criar os vertices na base
     base.push_back(Point(0.5, 0.01, 0.5)); // top right
     
-    // (top) right to left
+    // (top) right -> left
     base.push_back(Point(0.5-delta, 0.01, 0.5));
     base.push_back(Point(0.5-2*delta, 0.01, 0.5));
    
     base.push_back(Point(-0.5, 0.01, 0.5)); // top left
     
-    // (left) top to bottom
+    // (left) top -> bottom
     base.push_back(Point(-0.5, 0.01, 0.5-delta));
     base.push_back(Point(-0.5, 0.01, 0.5-2*delta));
 
     base.push_back(Point(-0.5, 0.01, -0.5)); // bottom left
     
-    // (bottom) left to right
+    // (bottom) left -> right
     base.push_back(Point(-0.5+delta, 0.01, -0.5));
     base.push_back(Point(-0.5+2*delta, 0.01, -0.5));
     
     base.push_back(Point(0.5, 0.01, -0.5)); // bottom right
     
-    // (right) bottom to top
+    // (right) bottom -> top
     base.push_back(Point(0.5, 0.01, -0.5+delta));
     base.push_back(Point(0.5, 0.01, -0.5+2*delta));
     
@@ -145,7 +141,6 @@ MyRobot::MyRobot(int stacks){
         normal = calculateSurfaceNormal(polygon2);
         normals.push_back(normal);
 
-		
 
     }
     
@@ -183,8 +178,8 @@ void MyRobot::draw(){
     glBegin(GL_POLYGON);
     for (int i = side.size()-1; i >= 0; i -= deltaSide) {
         glNormal3d(0, 1, 0);
-        glTexCoord2d(texels.at(i/deltaSide).at(i%deltaSide).x,
-                     texels.at(i/deltaSide).at(i%deltaSide).y);
+       glTexCoord2d(texels.at(i/deltaSide).at(i%deltaSide).x,
+                   texels.at(i/deltaSide).at(i%deltaSide).y);
         glVertex3d(side.at(i).x, side.at(i).y, side.at(i).z);
     }
     glEnd();
@@ -193,8 +188,8 @@ void MyRobot::draw(){
     glBegin(GL_POLYGON);
     for (unsigned int i = 0; i < side.size(); i += deltaSide) {
         glNormal3d(0, -1, 0);
-        glTexCoord2d(texels.at(i/deltaSide).at(i%deltaSide).x,
-                     texels.at(i/deltaSide).at(i%deltaSide).y);
+       glTexCoord2d(texels.at(i/deltaSide).at(i%deltaSide).x,
+                    texels.at(i/deltaSide).at(i%deltaSide).y);
         glVertex3d(side.at(i).x, side.at(i).y, side.at(i).z);
     }
     glEnd();
@@ -209,14 +204,14 @@ void MyRobot::draw(){
         for(int stack = 0; stack <= stacks; stack++){
             
             glTexCoord2d(texels.at(i/deltaSide).at(i%deltaSide).x,
-                         texels.at(i/deltaSide).at(i%deltaSide).y);
+                       texels.at(i/deltaSide).at(i%deltaSide).y);
            glNormal3d(normals.at(i).x, normals.at(i).y, normals.at(i).z);
             glVertex3d(side.at(i).x, side.at(i).y, side.at(i).z);
             i++;
             
-            glTexCoord2d(texels.at(j/deltaSide).at(j%deltaSide).x,
-                         texels.at(j/deltaSide).at(j%deltaSide).y);
-            glNormal3d(normals.at(j).x, normals.at(j).y, normals.at(j).z);
+           glTexCoord2d(texels.at(j/deltaSide).at(j%deltaSide).x,
+                        texels.at(j/deltaSide).at(j%deltaSide).y);
+          glNormal3d(normals.at(j).x, normals.at(j).y, normals.at(j).z);
             glVertex3d(side.at(j).x, side.at(j).y, side.at(j).z);
             j++;
         }

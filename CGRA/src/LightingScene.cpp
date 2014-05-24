@@ -124,8 +124,9 @@ void LightingScene::init()
 	light3On = 1;
 
 	//light4
-	/*
+	
 	light4 = new CGFlight(GL_LIGHT4, light4_pos);
+	
 	light4->setAmbient(ambientNull);
 	light4->setSpecular(green);
 	light4->setKc(0.0);
@@ -133,7 +134,7 @@ void LightingScene::init()
 	light4->setKq(1.0);
 	light4->enable();
 	light4On = 1;
-	*/
+	
 	// Uncomment below to enable normalization of lighting normal vectors
 	glEnable (GL_NORMALIZE);
 
@@ -381,6 +382,7 @@ LightingScene::~LightingScene()
 	delete(boardAppearance);
 	delete(clockAppearance);
 	delete(robotAppearance);
+	delete(chair);
 }
 
 

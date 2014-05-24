@@ -11,7 +11,6 @@ MyView::MyView(){
 void MyView::draw()
 {
     glPushAttrib(GL_ENABLE_BIT);
-    //glDisable(GL_DEPTH_TEST);
     glDisable(GL_LIGHTING);
     glDisable(GL_BLEND);
   
@@ -23,10 +22,10 @@ void MyView::draw()
 	glTranslated(0,0.5,0.5);
 	glNormal3d(0,0,-1);
     glBegin(GL_QUADS);
-    glTexCoord2f(0.0f, 0.0f); glVertex3f(-HALF_SIZE, -HALF_SIZE, 0.0f);
-    glTexCoord2f(0.0f, 1.0f); glVertex3f(-HALF_SIZE,  HALF_SIZE, 0.0f);
-    glTexCoord2f(1.0f, 1.0f); glVertex3f( HALF_SIZE,  HALF_SIZE, 0.0f);
-    glTexCoord2f(1.0f, 0.0f); glVertex3f( HALF_SIZE, -HALF_SIZE, 0.0f);
+    glTexCoord2f(0.0, 0.0); glVertex3d(-0.5,-0.5,0);
+    glTexCoord2f(0.0, 1.0); glVertex3d(-0.5,0.5,0);
+    glTexCoord2f(1.0, 1.0); glVertex3d(0.5,0.5,0);
+    glTexCoord2f(1.0, 0.0); glVertex3d(0.5,-0.5,0);
     glEnd();
 	glPopMatrix();
     
