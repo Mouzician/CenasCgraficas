@@ -2,6 +2,10 @@
 #include <iostream>
 using namespace std;
 
+
+
+
+
 MyRobot::MyRobot(int stacks){
 	this->mode = 1;
 	this->texture = 1;
@@ -118,7 +122,7 @@ MyRobot::MyRobot(int stacks){
 		
         // primeiras normais
         Point points[] = {side.at(j), side.at(i+1), side.at(k+1), side.at(k), side.at(i)};
-        vector<Point> polygon (points, points + sizeof(points) / sizeof(Point) );
+		vector<Point> polygon (points, points + sizeof(points) / sizeof(Point) );
         normal = calculateSurfaceNormal(polygon);
         normals.push_back(normal);
         
@@ -149,6 +153,22 @@ MyRobot::MyRobot(int stacks){
     y = 0.0;
     z = 0.0;
 }
+
+
+void MyRobot::draw_1(){
+
+	glPushMatrix();
+	glTranslated( x, y, z );
+    glRotated(rotation, 0, 1, 0);
+	glBegin(GL_TRIANGLES);
+		glVertex3f(0.5, 0.3, 0);
+		glVertex3f(-0.5, 0.3, 0);
+		glVertex3f(0, 0.3, 2);
+	glEnd();
+	glPopMatrix();
+
+}
+
 
 void MyRobot::draw(){
     

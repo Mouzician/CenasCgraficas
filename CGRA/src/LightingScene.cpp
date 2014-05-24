@@ -304,14 +304,26 @@ void LightingScene::display()
 	glPopMatrix();
 
 	//Robot
+	
+	//Ex 1
+	/*
+	glPushMatrix();
+	glTranslated(10, 0, 8);
+	glRotated(225, 0, 1, 0);
+	Robot->draw_1();
+	glPopMatrix();
+	*/
+	
+	
+	
 	glPushMatrix();
 	glTranslated(5,0,5);
-	glScaled(5,5,5);
+	//glScaled(5,5,5);
 	Robot->ApllyText(robotAppearance);
 	Robot->draw();
 	glPopMatrix();
-
-
+	
+	
 
 	// Board A
 	glPushMatrix();

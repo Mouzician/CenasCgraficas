@@ -29,6 +29,7 @@ class MyRobot : public CGFobject {
 		int mode;
 		int texture;
 		MyRobot(int Stacks = 10);
+		void draw_1();
 		void draw();
 		void rotateLeft();
 		void rotateRight();

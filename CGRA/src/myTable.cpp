@@ -209,7 +209,7 @@ void myChair::draw() {
 
 	//Encosto
 	glPushMatrix();
-	glTranslated(-0.05, 2.5, -0.9);
+	glTranslated(0, 2.5, -0.9);
 	glScaled(2.0, 2.0, 0.2);
 	cube.draw();
 	glPopMatrix();	
